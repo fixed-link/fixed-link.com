@@ -6,7 +6,6 @@ title: Search
 <style>
 	#search-container {
 		max-width: 100%;
-		color: rgb(0, 0, 0);
 	}
 
 	input[type=text] {
@@ -14,6 +13,7 @@ title: Search
 	    outline: none;
 	    padding: 1rem;
 		background: rgb(236, 237, 238);
+		color: rgb(0, 0, 0);
 	    width: 100%;
 		-webkit-appearance: none;
 		font-family: inherit;
