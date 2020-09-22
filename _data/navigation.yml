@@ -1,9 +1,9 @@
 links:
-- title: Home
+- title: home
   url: /
-- title: Find
+- title: find
   url: /search
-- title: Feed
+- title: rss
   url: /atom.xml
-- title: What
+- title: me
   url: /about
