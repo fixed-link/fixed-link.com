@@ -24,21 +24,22 @@ host <alias name>
     hostname <server name>
     port <ssh port>
     identityfile ~/.ssh/<filename>
-
+```
 例如：
-
+```
 host me
     user test
     hostname chowe.one
     port 22
     identityfile ~/.ssh/test
-
+```
 保存后执行
-
+```
 ssh me
-
+```
 这样就会以你设置的密钥登陆到远程主机上。
 
 同样，也可以用于scp风格的指令中：
+```
 scp me:path/to/filename ~/path/to/filename
 ```
