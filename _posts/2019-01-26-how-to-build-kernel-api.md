@@ -7,28 +7,28 @@ tags: [doc]
 ---
 
 
-0. [download](https://www.kernel.org/) kernel source
+Step 0. [download](https://www.kernel.org/) kernel source
 
-1. uncompress kernel source and go to its root
+Step 1. uncompress kernel source and go to its root
 
-2. sudo apt install gcc make
+Step 2. sudo apt install gcc make
 
-3. sudo apt install python-sphinx
+Step 3. sudo apt install python-sphinx
 
-4. sudo apt install texlive-xetex
+Step 4. sudo apt install texlive-xetex
 
-5. sudo apt install python-pip
+Step 5. sudo apt install python-pip
 
-6. pip install sphinx_rtd_theme
+Step 6. pip install sphinx_rtd_theme
 
-7. sudo apt install graphviz
+Step 7. sudo apt install graphviz
 
-8. sudo apt install imagemagick
+Step 8. sudo apt install imagemagick
 
-9. make htmldocs
+Step 9. make htmldocs
 
-10. also, you can try *make pdfdocs*, *make epubdocs*, *make xmldocs* or *make latexdocs* as you want
+Step 10. also, you can try *make pdfdocs*, *make epubdocs*, *make xmldocs* or *make latexdocs* as you want
 
-11. when finished, documentation you built is located at Documentation/output/
+Step 11. when finished, documentation you built is located at Documentation/output/
 
-12. enjoy it
+Step 12. enjoy it
