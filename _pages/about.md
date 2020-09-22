@@ -1,6 +1,6 @@
 ---
 layout: page
-title: about | Chowe's Blog
+title: Chowe's Blog
 ---
 
 

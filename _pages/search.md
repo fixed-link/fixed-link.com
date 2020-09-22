@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Search
+title: Find
 ---
 
 <style>
@@ -27,7 +27,7 @@ title: Search
 
 <!-- Html Elements for Search -->
 <div id="search-container">
-<input type="text" id="search-input" placeholder="Search...">
+<input type="text" id="search-input" placeholder="Find something...">
 <ol id="results-container"></ol>
 </div>
 
