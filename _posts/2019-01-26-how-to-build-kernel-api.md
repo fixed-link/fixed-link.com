@@ -7,8 +7,6 @@ tags: [doc]
 ---
 
 
-# 如何编译内核API文档
-
 0. [download](https://www.kernel.org/) kernel source
 
 1. uncompress kernel source and go to its root
