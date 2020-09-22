@@ -1,9 +1,9 @@
 links:
-- title: home
+- title: CHOWE
   url: /
-- title: find
+- title: FIND
   url: /search
-- title: rss
+- title: RSS
   url: /atom.xml
-- title: me
+- title: ME
   url: /about
