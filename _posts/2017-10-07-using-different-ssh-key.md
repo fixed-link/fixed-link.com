@@ -43,3 +43,13 @@ ssh me
 ```
 scp me:path/to/filename ~/path/to/filename
 ```
+
+如果想要指定某个主机使用特定的密钥
+在~/.ssh/config作出如下配置即可：
+```
+host example.com
+    identityfile ~/.ssh/xxx_rsa
+
+host *
+    identityfile ~/.ssh/id_rsa
+```
