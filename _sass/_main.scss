@@ -35,9 +35,9 @@ body {
     text-shadow:none;
 }
 
-nav ul {
-    border-right: 1px solid #edf2f7;
-}
+// nav ul {
+//     border-right: 1px solid #edf2f7;
+// }
 
 a {
     color: #fafafa;
@@ -95,7 +95,7 @@ hr {
 }
 
 header {
-	flex-basis:10rem;
+	flex-basis:1rem;
 	flex-grow:1;
 	position:relative;
 }
@@ -107,7 +107,7 @@ header a {
 header li {
 	margin-bottom: .2rem;
 	text-align: right;
-	margin-right: 2rem;
+	margin-right: 0.5rem;
 }
 
 header a.active {
