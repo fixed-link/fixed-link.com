@@ -17,19 +17,19 @@ body {
 	color: #fafafa;
 }
 
-body::selection {
+::selection {
     color:#FFFFFF;
     background-color:#0078D7;
     text-shadow:none;
 }
 
-body::-moz-selection {
+::-moz-selection {
     color:#FFFFFF;
     background-color:#0078D7;
     text-shadow:none;
 }
 
-body::-webkit-selection {
+::-webkit-selection {
     color:#FFFFFF;
     background-color:#0078D7;
     text-shadow:none;
