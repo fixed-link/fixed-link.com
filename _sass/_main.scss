@@ -13,8 +13,26 @@ body {
 	line-height:1.5;
 	font-size: 1rem;
 	// color: rgb(22, 23, 26);
-	background-color: #787878;
-    color: #fafafa;
+	background-color: #606060;
+	color: #fafafa;
+}
+
+body::selection {
+    color:#FFFFFF;
+    background-color:#0078D7;
+    text-shadow:none;
+}
+
+body::-moz-selection {
+    color:#FFFFFF;
+    background-color:#0078D7;
+    text-shadow:none;
+}
+
+body::-webkit-selection {
+    color:#FFFFFF;
+    background-color:#0078D7;
+    text-shadow:none;
 }
 
 nav ul {
@@ -50,7 +68,7 @@ pre {
 
 code,pre {
 	// background: rgb(236, 237, 238);
-	background: #787878;
+	background: #686868;
 }
 
 code {
