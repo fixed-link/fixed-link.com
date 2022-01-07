@@ -59,7 +59,8 @@ pre {
 }
 
 .post h2:first-child, .project h2:first-child, .photo h2:first-child {
-	margin-top: 0;
+	margin-top: 0.1rem;
+	margin-bottom: 2rem;
 }
 
 .meta {
@@ -213,6 +214,11 @@ nav ul {
 .photos ul {
 	margin-top: 0.5rem;
 }
+.post h2:first-child, .project h2:first-child, .photo h2:first-child {
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+}
+
 
 }
 
