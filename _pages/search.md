@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Find
 ---
 
 <style>
