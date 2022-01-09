@@ -7,6 +7,7 @@ title: Find
 	#search-container {
 		max-width: 100%;
 		padding-top: 0.3rem;
+		padding-bottom: 0.5rem;
 	}
 	@media screen and (max-width: 45rem ) {
 		#search-container {
