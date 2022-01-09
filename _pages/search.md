@@ -6,7 +6,7 @@ title: Find
 <style>
 	#search-container {
 		max-width: 100%;
-		padding-top: 1rem;
+		padding-top: 0.8rem;
 	}
 
 	input[type=text] {
