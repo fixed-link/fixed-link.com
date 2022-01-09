@@ -6,7 +6,12 @@ title: Find
 <style>
 	#search-container {
 		max-width: 100%;
+		padding-top: 0.3rem;
+	}
+	@media screen and (max-width: 45rem ) {
+		#search-container {
 		padding-top: 0.8rem;
+	}
 	}
 
 	input[type=text] {
