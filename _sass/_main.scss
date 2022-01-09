@@ -50,6 +50,12 @@ pre {
 	padding: .5rem;
 }
 
+.post br {
+	display: block;
+	content: "";
+	margin-top: 0;
+}
+
 .post p {
 	margin: .5rem 0;
 }
@@ -60,7 +66,7 @@ pre {
 
 .post h2:first-child, .project h2:first-child, .photo h2:first-child {
 	margin-top: 0;
-	margin-bottom: 1.5rem;
+	// margin-bottom: 1.5rem;
 }
 
 .meta {
@@ -214,11 +220,6 @@ nav ul {
 .photos ul {
 	margin-top: 0.5rem;
 }
-.post h2:first-child, .project h2:first-child, .photo h2:first-child {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
 
 }
 
