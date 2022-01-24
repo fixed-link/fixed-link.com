@@ -15,8 +15,8 @@ tags: [doc]
 #include <linux/gpio.h>
 #include <linux/timer.h>
 
-#define RS485_NR		CONFIG_SERIAL_8250_NR_UARTS
-#define RS485_GPIO_DEF	GPIO0_A3
+#define RS485_NR        CONFIG_SERIAL_8250_NR_UARTS
+#define RS485_GPIO_DEF  GPIO0_A3
 
 typedef struct {
 	ktime_t ktime;
@@ -25,7 +25,6 @@ typedef struct {
 } rs485_ctl_t;
 
 rs485_ctl_t rs485_ctl[RS485_NR];
-
 ```
 
 然后在serial8250_init_port中初始化：
@@ -61,9 +60,7 @@ int serial8250_rs485_config(struct uart_port *port, struct serial_rs485 *rs485)
 		gpio = (unsigned)port->unused1;
 
 	if (port->rs485.flags & SER_RS485_ENABLED)
-	{
 		return serial8250_rs485_gpio_init(gpio);
-	}
 
 	return -EINVAL;
 }
@@ -123,7 +120,7 @@ if (port->rs485.flags & SER_RS485_ENABLED)
 	rs485_ctl[i].ktime = ktime_set(0, HZ * 1000);
 
 	hrtimer_restart(&rs485_ctl[i].timer,
-					rs485_ctl[i].ktime, HRTIMER_MODE_REL);
+	                rs485_ctl[i].ktime, HRTIMER_MODE_REL);
 }
 ```
 
@@ -137,7 +134,6 @@ if (port->rs485.flags & SER_RS485_ENABLED)
 实现相关的函数
 
 ```C
-
 static inline void serial8250_rs485_start_tx(unsigned gpio)
 {
 	gpio_set_value(gpio, 1);
