@@ -10,17 +10,22 @@ tags: [doc]
 在宿主机上下载基本包，然后在开发板进行安装
 ```bash
 # 下载
-sudo debootstrap --arch=arm64 --foreign --components=main,restricted,universe,multiverse --exclude=apt-transport-https,gcc --include=openssh-server,vim bionic workspace https://mirrors.cloud.tencent.com/ubuntu-ports
+sudo debootstrap --arch=arm64 --foreign --components=main,restricted,universe,multiverse \
+    --exclude=apt-transport-https,gcc --include=openssh-server,vim bionic workspace \
+    https://mirrors.cloud.tencent.com/ubuntu-ports
 # 下载版本为bionic的Ubuntu到workspace这个目录，下载地址可以根据实际情况替换
 #Ubuntu的版本代号可前往https://wiki.ubuntu.com/Releases查看
 
 # 将workspace复制到开发板上，然后安装
-LANG=C.UTF-8 LANGUAGE==C.UTF-8 LC_ALL=C.UTF-8 chroot workspace /debootstrap/debootstrap --second-stage --no-check-gpg
+LANG=C.UTF-8 LANGUAGE==C.UTF-8 LC_ALL=C.UTF-8 \
+chroot workspace /debootstrap/debootstrap --second-stage --no-check-gpg
 ```
 
 或者，直接在开发板上下载安装
 ```bash
-debootstrap --arch=arm64 --components=main,restricted,universe,multiverse --exclude=apt-transport-https,gcc --include=openssh-server,vim bionic workspace https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports
+debootstrap --arch=arm64 --components=main,restricted,universe,multiverse \
+    --exclude=apt-transport-https,gcc --include=openssh-server,vim bionic workspace \
+    https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports
 ```
 
 安装完成后，在开发板进入Ubuntu，开始进行配置
