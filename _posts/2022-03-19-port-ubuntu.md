@@ -18,7 +18,7 @@ sudo debootstrap --arch=arm64 --foreign --components=main,restricted,universe,mu
 
 # 将workspace复制到开发板上，然后安装
 LANG=C.UTF-8 LANGUAGE==C.UTF-8 LC_ALL=C.UTF-8 \
-chroot workspace /debootstrap/debootstrap --second-stage --no-check-gpg
+    chroot workspace /debootstrap/debootstrap --second-stage --no-check-gpg
 ```
 
 或者，直接在开发板上下载安装
@@ -43,7 +43,7 @@ network:
   version: 2
 ```
 
-开机打印IP
+开机打印IP [参考](https://www.jianshu.com/p/7fd8b6ea336e)
 ```bash
 cat /lib/systemd/system/getip.service
 [Unit]
