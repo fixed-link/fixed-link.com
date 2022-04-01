@@ -43,6 +43,18 @@ network:
   version: 2
 ```
 
+如果需要桌面接管网络，则如下配置
+```
+cat /etc/netplan/00-installer-config.yaml
+network:
+  version: 2
+  renderer: NetworkManager
+  
+diff /etc/NetworkManager/NetworkManager.conf
+-managed=false
++managed=true
+```
+
 开机打印IP [参考](https://www.jianshu.com/p/7fd8b6ea336e)
 ```bash
 cat /lib/systemd/system/getip.service
@@ -120,7 +132,7 @@ systemctl enable /lib/systemd/system/resize-helper.service
 systemctl disable sleep.target suspend.target hibernate.target hybrid-sleep.target
 ```
 
-挂载user分区
+挂载user分区（如果是桌面环境可以跳过）
 ```bash
 cat /etc/fstab
 
