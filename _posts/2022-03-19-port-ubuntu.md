@@ -55,6 +55,14 @@ diff /etc/NetworkManager/NetworkManager.conf
 +managed=true
 ```
 
+添加默认dns
+```
+diff /etc/systemd/resolved.conf
+[Resolve]
+-#DNS=
++DNS=8.8.8.8 114.114.114.114 119.29.29.29 223.6.6.6 180.76.76.76 1.1.1.1 1.2.4.8
+```
+
 开机打印IP [参考](https://www.jianshu.com/p/7fd8b6ea336e)
 ```bash
 cat /lib/systemd/system/getip.service
