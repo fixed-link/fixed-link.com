@@ -10,12 +10,12 @@ tags: [doc]
 Step 1. 首先生成公钥
 ```
 ssh-keygen -t rsa -b 4096 -C "<user@server>" -f ~/.ssh/<filename>
-将user@server和filename有意义的字符串。此时密钥对就会在指定路径生成。
+# 将user@server和filename有意义的字符串。此时密钥对就会在指定路径生成。
 ```
 Step 2. 将\<filename\>.pub 拷贝到远程主机上
 ```
 ssh-copy-id -i ~/.ssh/<filename>.pub <user@server>
-远程主机会要求你登录。
+# 远程主机会要求你登录。
 ```
 Step 3. 拷贝完成后，在~/.ssh/config作出如下配置：
 ```
@@ -53,3 +53,10 @@ host example.com
 host *
     identityfile ~/.ssh/id_rsa
 ```
+
+如果密钥带有passphrase而你又不想每次都要输入，可以使用ssh agent
+```
+eval $(ssh-agent)
+ssh-add ~/.ssh/xxx_rsa
+```
+此时只有输入一次passphrase就可以了，当然，这个只针对当前shell起作用
