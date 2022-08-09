@@ -1,4 +1,4 @@
-# Chowe's Blog
+# fixed-link.com
 
-Chowe's Blog use the jekyll blogging theme, [Sidey](https://github.com/ronv/sidey).
+This blog use the jekyll blogging theme, [Sidey](https://github.com/ronv/sidey).
 
