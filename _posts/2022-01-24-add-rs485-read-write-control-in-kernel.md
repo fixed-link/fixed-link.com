@@ -32,8 +32,8 @@ rs485_ctl_t rs485_ctl[RS485_NR];
 ```C
 int i = port->line;
 
-// 这里用到了struct uart_port中的空闲变量unused1来保存gpio
-port->unused1 = RS485_GPIO_DEF;
+// 这里用到了struct uart_port中的空闲变量unused[0]来保存gpio
+port->unused[0] = RS485_GPIO_DEF;
 port->rs485_config = serial8250_rs485_config;
 
 hrtimer_init(&rs485_ctl[i].timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
@@ -55,9 +55,9 @@ int serial8250_rs485_config(struct uart_port *port, struct serial_rs485 *rs485)
 	gpio = (unsigned)port->rs485.padding[0];
 
 	if (gpio > 0)
-		port->unused1 = gpio;
+		port->unused[0] = gpio;
 	else
-		gpio = (unsigned)port->unused1;
+		gpio = (unsigned)port->unused[0];
 
 	if (port->rs485.flags & SER_RS485_ENABLED)
 		return serial8250_rs485_gpio_init(gpio);
@@ -86,10 +86,10 @@ static int serial8250_rs485_gpio_init(unsigned gpio)
 
 static enum hrtimer_restart serial8250_rs485_stop_tx_timeout(struct hrtimer *t)
 {
-	struct rs485_ctl_t *rs485_ctl =
-		container_of(t, struct rs485_ctl_t, timer);
+	rs485_ctl_t *rs485_ctl =
+		container_of(t, rs485_ctl_t, timer);
 	struct uart_port *port = rs485_ctl->port;
-	unsigned gpio = (unsigned)port->unused1;
+	unsigned gpio = (unsigned)port->unused[0];
 
 	if (serial8250_tx_empty(port))
 	{
@@ -109,7 +109,7 @@ static enum hrtimer_restart serial8250_rs485_stop_tx_timeout(struct hrtimer *t)
 ```C
 // 发送数据前拉高gpio
 if (port->rs485.flags & SER_RS485_ENABLED)
-	serial8250_rs485_start_tx((unsigned)port->unused1);
+	serial8250_rs485_start_tx((unsigned)port->unused[0]);
 
 // 发送完成后拉低gpio
 if (port->rs485.flags & SER_RS485_ENABLED)
@@ -119,7 +119,7 @@ if (port->rs485.flags & SER_RS485_ENABLED)
 	rs485_ctl[i].port = port;
 	rs485_ctl[i].ktime = ktime_set(0, HZ * 1000);
 
-	hrtimer_restart(&rs485_ctl[i].timer,
+	hrtimer_start(&rs485_ctl[i].timer,
 	                rs485_ctl[i].ktime, HRTIMER_MODE_REL);
 }
 ```
@@ -128,7 +128,7 @@ if (port->rs485.flags & SER_RS485_ENABLED)
 
 ```C
 if (port->rs485.flags & SER_RS485_ENABLED)
-	serial8250_rs485_gpio_free((unsigned)port->unused1);
+	serial8250_rs485_gpio_free((unsigned)port->unused[0]);
 ```
 
 实现相关的函数
