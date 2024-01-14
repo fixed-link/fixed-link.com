@@ -7,15 +7,14 @@ tags: [doc]
 ---
 
 
-以IR这个模块为例，
-实现部分: aosp\hardware\libhardware\modules\consumerir
-这部分最后生成动态库，供接口调用
-接口部分：aosp\hardware\interfaces\ir
+以IR这个模块为例<br />
+实现部分: aosp\hardware\libhardware\modules\consumerir<br />
+这部分最后生成动态库，供接口调用<br />
+接口部分：aosp\hardware\interfaces\ir<br />
 这部分最后生成服务，供上层应用调用
 
-
-先看实现部分，这部分以c实现，接近传统的Linux编程
-首先是一系列的实现函数，然后用两个结构体串联起来，以供后续使用
+先看实现部分，这部分以c实现，接近传统的Linux编程<br />
+首先是一系列的实现函数，然后用两个结构体串联起来，以供后续使用<br />
 第一个结构体是struct hw_module_methods_t
 ```
 static struct hw_module_methods_t consumerir_module_methods = {
@@ -38,11 +37,11 @@ consumerir_module_t HAL_MODULE_INFO_SYM = {
     },
 };
 ```
-HAL_MODULE_INFO_SYM是一个宏定义，具体作用是用来定位模块入口的，当这个动态库被打开之后，就可以用dlsym来定位这个宏定义的地址，从而确定这个模块的入口地址
+HAL_MODULE_INFO_SYM是一个宏定义，具体作用是用来定位模块入口的，当这个动态库被打开之后，就可以用dlsym来定位这个宏定义的地址，从而确定这个模块的入口地址<br />
 CONSUMERIR_HARDWARE_MODULE_ID是这个模块的ID，系统通过这个ID来匹配是不是目标模块
 
-再看接口部分，这部分以cpp为主
-首先是aidl文件，这部分定义了上层可以访问的一些接口、结构体变量之类的
+再看接口部分，这部分以cpp为主<br />
+首先是aidl文件，这部分定义了上层可以访问的一些接口、结构体变量之类的<br />
 然后是cpp文件，这部分是接口服务的主体部分
 ```
 ConsumerIr::ConsumerIr() {
@@ -62,11 +61,11 @@ ConsumerIr::ConsumerIr() {
     }
 }
 ```
-在上面的构造函数里，通过hw_get_module这个函数来打开目标模块，传递的CONSUMERIR_HARDWARE_MODULE_ID正是上面定义的ID，这里对应上了
+在上面的构造函数里，通过hw_get_module这个函数来打开目标模块，传递的CONSUMERIR_HARDWARE_MODULE_ID正是上面定义的ID，这里对应上了<br />
 然后接下来的open就是上面实现的open，这样就可以拿到目标指针了，之后就可以正常访问这个模块了
 
-hw_get_module在aosp\hardware\libhardware\hardware.c定义，实际上是调用hw_module_exists来寻找目标模块的
-目标模块的命名和存放位置必须符合HAL的规则，当找到符合规则的模块之后，进入用load函数开始加载
+hw_get_module在aosp\hardware\libhardware\hardware.c定义，实际上是调用hw_module_exists来寻找目标模块的<br />
+目标模块的命名和存放位置必须符合HAL的规则，当找到符合规则的模块之后，进入用load函数开始加载<br />
 首先要用dlopen打开，然后用dlsym定位模块的入口，这个入口在上面用HAL_MODULE_INFO_SYM定义
 ```
 /* Get the address of the struct hal_module_info. */
