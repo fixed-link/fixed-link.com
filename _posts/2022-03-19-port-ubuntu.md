@@ -14,7 +14,7 @@ sudo debootstrap --arch=arm64 --foreign --components=main,restricted,universe,mu
     --exclude=apt-transport-https,gcc --include=openssh-server,vim bionic workspace \
     https://mirrors.cloud.tencent.com/ubuntu-ports
 # 下载版本为bionic的Ubuntu到workspace这个目录，下载地址可以根据实际情况替换
-#Ubuntu的版本代号可前往https://wiki.ubuntu.com/Releases查看
+# Ubuntu的版本代号可前往https://wiki.ubuntu.com/Releases查看
 
 # 将workspace复制到开发板上，然后安装
 LANG=C.UTF-8 LANGUAGE==C.UTF-8 LC_ALL=C.UTF-8 \
