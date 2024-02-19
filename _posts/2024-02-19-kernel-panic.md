@@ -21,7 +21,6 @@ ethtool_check_ops+0x18/0x38
 # 前置条件：CONFIG_DEBUG_INFO=y
 # 0xFFFF800011AD4328 由上文的函数基址+偏移位置得出，也即是PC寄存器当前值
 aarch64-linux-gnu-addr2line -C -f -e vmlinux 0xFFFF800011AD4328
-
 ```
 
 调试手段
@@ -39,7 +38,6 @@ WARN(condition,format...)
 WARN_ON(condition)
 WARN_ONCE(condition, format...)
 WARN_ON_ONCE(condition)
-
 ```
 
 一些相关寄存器
